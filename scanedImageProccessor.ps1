@@ -31,7 +31,7 @@ if([string]::IsNullOrEmpty($FilePath) -Or (Test-Path -LiteralPath $FilePath -Pat
     $dialog = New-Object System.Windows.Forms.OpenFileDialog
     $dialog.Filter = "JPG ファイル(*.jpg)|*.jpg"
     $dialog.InitialDirectory = $USR_DEKSTOP_PATH
-    $dialog.Title = "スキャナで読み込んだ住宅地図画像ファイルを選択してください"
+    $dialog.Title = "スキャナで読み込んだ画像ファイルを選択してください"
     # キャンセルを押された時は処理を止める
     if($dialog.ShowDialog() -eq [System.Windows.Forms.DialogResult]::NG){
         exit 1
