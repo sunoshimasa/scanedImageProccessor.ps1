@@ -57,8 +57,9 @@ Remove-Item $FilePath".trimed.jpg"
 # Scan printed out paper.
 # Paste scaned image file on powerpoint document and print it out again.
 # Again Measure the length of the line with a ruler.  --> line length (B)
-# Calcurate (A)/(B)*100. The answer is scale rate/factor.  --> shlink rate(C)
+# Calcurate (A)/(B)*100. The answer is scale ratio/factor.  --> shlink/expand ratio(C)
 # The length of (B) varies depending on the image processing of the scanner machine you used.
-# With imagick.exe, Manipurate scanned image file at that scaling rate/factor and paste it on powerpoint document again.
+# With imagick.exe, Manipurate scanned image file at that scaling ratio/factor and paste it on powerpoint document again.
 # Print it out again and measure the length of the line with a ruler and repeat till both lines matches as same length.
-# 
+# Determine the scaling ratio so that it is approximately the same length.
+#
