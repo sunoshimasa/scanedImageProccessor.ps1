@@ -44,8 +44,21 @@ if([string]::IsNullOrEmpty($FilePath) -Or (Test-Path -LiteralPath $FilePath -Pat
 Write-host ">> " $FilePath
 # D ドライブ直下の ImageMagick で画像をトリミングする　画像周囲の余白をカット
 d:\ImageMagick-7.0.10-22-portable-Q16-x64\magick.exe $FilePath -crop 4614x6670+170+170 $FilePath".trimed.jpg"
-# D ドライブ直下の ImageMagick で画像をリサイズする　93%縮小
+# D ドライブ直下の ImageMagick で画像をリサイズする　94%縮小
 d:\ImageMagick-7.0.10-22-portable-Q16-x64\magick.exe $FilePath".trimed.jpg" -resize 94%^ -quality 100 $FilePath".shrinked.jpg"
 #
 # 完了処理　不要なjpgを削除
 Remove-Item $FilePath".trimed.jpg"
+#
+# Why 94% shlinking at line 48 using ImageMagick?
+# Because for fit its actual size.
+# For example, draw a line on powerpoint document and print it out.
+# Measure the length of the line with a ruler.        --> line length (A)
+# Scan printed out paper.
+# Paste scaned image file on powerpoint document and print it out again.
+# Again Measure the length of the line with a ruler.  --> line length (B)
+# Calcurate (A)/(B)*100. The answer is scale rate/factor.  --> shlink rate(C)
+# The length of (B) varies depending on the image processing of the scanner machine you used.
+# With imagick.exe, Manipurate scanned image file at that scaling rate/factor and paste it on powerpoint document again.
+# Print it out again and measure the length of the line with a ruler and repeat till both lines matches as same length.
+# 
